@@ -1,3 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">KharidLo2</string>
+    <string name="app_name">Kharid Lo</string>
+    <string name="welcome_subtitle">Your Hostel Shop — Anytime, Anywhere</string>
+    <string name="i_am_customer">I am a Customer</string>
+    <string name="i_am_owner">I am the Owner</string>
+    <string name="login">Login</string>
+    <string name="email_hint">Email Address</string>
+    <string name="password_hint">Password</string>
+    <string name="add_to_cart">ADD</string>
+    <string name="place_order">Place Order</string>
+    <string name="request_product">Request Product</string>
+    <string name="pay_now">Pay Now 🎉</string>
 </resources>
