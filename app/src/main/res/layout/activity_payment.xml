@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Payment Screen — UPI or Cash on Delivery -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Header -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:background="@color/primary" android:paddingTop="44dp"
+            android:paddingBottom="16dp" android:paddingHorizontal="16dp"
+            android:orientation="horizontal" android:gravity="center_vertical">
+            <TextView android:id="@+id/tvBack" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="←"
+                android:textSize="26sp" android:textColor="@color/white" android:padding="4dp" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Payment"
+                android:textSize="20sp" android:textStyle="bold"
+                android:textColor="@color/white" android:paddingStart="12dp" />
+        </LinearLayout>
+
+        <!-- Order total summary -->
+        <androidx.cardview.widget.CardView android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_margin="16dp"
+            app:cardCornerRadius="16dp" app:cardElevation="4dp" app:cardBackgroundColor="@color/white">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:padding="20dp" android:gravity="center_vertical">
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Order Total" android:textColor="@color/text_secondary" android:textSize="13sp" />
+                    <TextView android:id="@+id/tvOrderTotal"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="₹0" android:textSize="28sp" android:textStyle="bold"
+                        android:textColor="@color/primary" />
+                </LinearLayout>
+                <TextView android:id="@+id/tvItemCount"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="0 items" android:textColor="@color/text_secondary" android:textSize="13sp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Payment method selector -->
+        <androidx.cardview.widget.CardView android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="16dp" app:cardCornerRadius="16dp"
+            app:cardElevation="4dp" app:cardBackgroundColor="@color/white">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:padding="20dp">
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Select Payment Method"
+                    android:textSize="16sp" android:textStyle="bold"
+                    android:textColor="@color/text_primary" android:layout_marginBottom="16dp" />
+
+                <!-- UPI row -->
+                <LinearLayout android:id="@+id/llUPI" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:orientation="horizontal"
+                    android:gravity="center_vertical" android:padding="14dp"
+                    android:background="@drawable/bg_button_outlined" android:layout_marginBottom="12dp">
+                    <RadioButton android:id="@+id/rbUPI"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:buttonTint="@color/primary" android:checked="true" />
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical" android:paddingStart="10dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="📱  UPI Payment"
+                            android:textSize="15sp" android:textStyle="bold" android:textColor="@color/text_primary" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="GPay, PhonePe, Paytm"
+                            android:textSize="12sp" android:textColor="@color/text_secondary" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- UPI ID input (visible when UPI selected) -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilUpiId"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:hint="Enter UPI ID (e.g. name@upi)"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_marginBottom="16dp">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etUpiId" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:inputType="text" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Cash row -->
+                <LinearLayout android:id="@+id/llCash" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:orientation="horizontal"
+                    android:gravity="center_vertical" android:padding="14dp"
+                    android:background="@drawable/bg_category_chip">
+                    <RadioButton android:id="@+id/rbCash"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:buttonTint="@color/primary" />
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical" android:paddingStart="10dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="💵  Cash on Delivery"
+                            android:textSize="15sp" android:textStyle="bold" android:textColor="@color/text_primary" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Pay when delivered to your room"
+                            android:textSize="12sp" android:textColor="@color/text_secondary" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Pay button -->
+        <Button android:id="@+id/btnPayNow"
+            android:layout_width="match_parent" android:layout_height="54dp"
+            android:text="Pay Now 🎉"
+            android:textSize="16sp" android:textStyle="bold"
+            android:textColor="@color/white" android:background="@drawable/bg_button_primary"
+            android:layout_marginHorizontal="16dp" android:layout_marginBottom="24dp" />
+    </LinearLayout>
+</ScrollView>
