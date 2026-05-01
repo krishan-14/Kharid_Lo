@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Search Screen -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background">
+
+    <!-- Search bar header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primary"
+        android:paddingTop="44dp"
+        android:paddingBottom="16dp"
+        android:paddingHorizontal="16dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tvBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="←"
+            android:textSize="26sp"
+            android:textColor="@color/white"
+            android:paddingEnd="12dp" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="46dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_search_bar"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="14dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🔍 "
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/etSearch"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:hint="Search products..."
+                android:background="@null"
+                android:textSize="15sp"
+                android:imeOptions="actionSearch"
+                android:inputType="text"
+                android:singleLine="true" />
+
+            <TextView
+                android:id="@+id/tvClear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="✕"
+                android:textSize="15sp"
+                android:textColor="@color/text_secondary"
+                android:padding="4dp"
+                android:visibility="gone" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Result count -->
+    <TextView
+        android:id="@+id/tvResultCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Showing all products"
+        android:textColor="@color/text_secondary"
+        android:textSize="13sp"
+        android:padding="16dp" />
+
+    <!-- Results -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvSearchResults"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingHorizontal="14dp"
+        android:clipToPadding="false" />
+
+    <!-- Bottom Nav -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:menu="@menu/bottom_nav_menu" />
+</LinearLayout>
